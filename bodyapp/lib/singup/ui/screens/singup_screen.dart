@@ -17,7 +17,7 @@ class SingUpScreen extends StatelessWidget {
             children: [
               Container(
                 color: Colors.teal,
-                height: size.width * 0.13,
+                height: size.width * 0.1,
               ),
               SizedBox(
                 height: size.width * 0.05,
