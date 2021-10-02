@@ -30,8 +30,8 @@ class MedidasScreen extends StatelessWidget {
               child: Text('atualizado em ${DateTime.now()}'),
             ),
             Positioned(
-              right: 48,
-              top: 48,
+              right: 20,
+              top: 20,
               child: Row(
                 children: [
                   MeasureLabelWidget(
@@ -49,28 +49,70 @@ class MedidasScreen extends StatelessWidget {
               ),
             ),
             NestedMeasureWidget(
-              top: 188,
+              top: 188 / 1.6,
               left: 0,
               width: width * .5,
               label: 'Pescoço',
               value: '95',
-              measure: ' cm',
             ),
             NestedMeasureWidget(
-              top: 188,
+              top: 188 /1.2,
               left: 0,
-              width: width * .6,
+              width: width * .7,
               label: 'Peito',
               value: '95',
-              measure: ' cm',
             ),
             NestedMeasureWidget(
-              top: 188 + 48,
-              left: 0,
-              width: width * .6,
+              top: 188 + 5,
+              left: width / 9,
+              width: width * .36,
               label: 'Biceps',
               value: '95',
-              measure: ' cm',
+            ),
+            NestedMeasureWidget(
+              top: 188 + 50,
+              left: 0,
+              width: width * .7,
+              label: 'Cintura',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 188 + 90,
+              left: 0,
+              width: width * .47,
+              label: 'Quadril',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 188 + 140,
+              left: 0,
+              width: width * .7,
+              label: 'Coxa',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 188 + 240,
+              left: 0,
+              width: width * .53,
+              label: 'Panturrilha',
+              value: '95',
+            ),
+            Positioned(
+              right: width / 18,
+              top: height / 3.7,
+              child: Column(
+                children: [
+                  MeasureLabelWidget(
+                    label: 'Gordura',
+                    value: '170',
+                  ),
+                  SizedBox(height: 55),
+                  MeasureLabelWidget(
+                    label: 'IMC',
+                    value: '22',
+                  ),
+                ],
+              ),
             ),
           ],
         ),
