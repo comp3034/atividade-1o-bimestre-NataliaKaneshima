@@ -39,7 +39,7 @@ class SingUpScreen extends StatelessWidget {
                     onPressed: null,
                     icon: Icon(
                       FontAwesomeIcons.facebook,
-                      color: Color.fromRGBO(0,0,139, 5),
+                      color: Color.fromRGBO(0, 0, 139, 5),
                       size: size.width * 0.1,
                     ),
                     iconSize: 32,
@@ -48,7 +48,7 @@ class SingUpScreen extends StatelessWidget {
                     onPressed: null,
                     icon: Icon(
                       FontAwesomeIcons.twitter,
-                      color: Color.fromRGBO(0,191,255, 5),
+                      color: Color.fromRGBO(0, 191, 255, 5),
                       size: size.width * 0.1,
                     ),
                     iconSize: 32,
@@ -57,7 +57,7 @@ class SingUpScreen extends StatelessWidget {
                     onPressed: null,
                     icon: Icon(
                       FontAwesomeIcons.google,
-                      color: Color.fromRGBO(178,34,34, 5),
+                      color: Color.fromRGBO(178, 34, 34, 5),
                       size: size.width * 0.1,
                     ),
                     iconSize: 32,
@@ -92,8 +92,7 @@ class AddImageProfile extends StatelessWidget {
                 FontAwesomeIcons.user,
                 color: Colors.teal,
                 size: size.width * 0.15,
-              )
-          ),
+              )),
         ),
         Positioned(
           top: size.height * 0.09,
@@ -107,15 +106,13 @@ class AddImageProfile extends StatelessWidget {
                 border: Border.all(
                   color: Colors.white,
                   width: 2,
-                )
-            ),
+                )),
             child: Icon(
               FontAwesomeIcons.camera,
               color: Colors.teal,
             ),
           ),
         ),
-
       ],
     );
   }
@@ -135,7 +132,9 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
   RegExp _upper = RegExp(r'[A-Z]');
   RegExp _lower = RegExp(r'[a-z]');
   RegExp _numeric = RegExp(r'[0-9]');
+  bool isConfirmPasswordObscured = true;
   bool isPasswordObscured = true;
+  String _password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +168,7 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
               hintText: 'Senha',
               prefixIcon: Icons.lock,
               sufixIcon:
-              isPasswordObscured ? Icons.visibility_off : Icons.visibility,
+                  isPasswordObscured ? Icons.visibility_off : Icons.visibility,
               obscureText: isPasswordObscured,
               suffixIconOnPressed: () {
                 setState(() {
@@ -191,6 +190,11 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
                 }
                 return null;
               },
+              onChanged: (value) {
+                setState(() {
+                  _password = value;
+                });
+              },
             ),
           ),
           Padding(
@@ -198,12 +202,13 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
             child: InputWidget(
               hintText: 'Confirmar senha',
               prefixIcon: Icons.lock,
-              sufixIcon:
-              isPasswordObscured ? Icons.visibility_off : Icons.visibility,
-              obscureText: isPasswordObscured,
+              sufixIcon: isConfirmPasswordObscured
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              obscureText: isConfirmPasswordObscured,
               suffixIconOnPressed: () {
                 setState(() {
-                  isPasswordObscured = !isPasswordObscured;
+                  isConfirmPasswordObscured = !isConfirmPasswordObscured;
                 });
               },
               validator: (value) {
@@ -218,6 +223,9 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
                 }
                 if (value != null && !value.contains(_numeric)) {
                   return 'A senha deve conter pelo menos um caractere numerico.';
+                }
+                if (value != _password) {
+                  return 'A senha e confirmação de senha devem ser iguais.';
                 }
                 return null;
               },
@@ -243,7 +251,6 @@ class _ContaFormWidgetState extends State<ContaFormWidget> {
     );
   }
 }
-
 
 class InputWidget extends StatelessWidget {
   String? hintText;
@@ -308,4 +315,3 @@ class InputWidget extends StatelessWidget {
     );
   }
 }
-

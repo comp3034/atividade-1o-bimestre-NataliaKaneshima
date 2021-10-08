@@ -6,7 +6,7 @@ import 'package:pixel_perfect/pixel_perfect.dart';
 import 'dieta/dieta.dart';
 import 'login/login.dart';
 import 'medidas/medidas.dart';
-import  'singup/singup.dart';
+import 'singup/singup.dart';
 // import 'home/home.dart';
 
 void main() {
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: SingUpScreen(),
+      home: MedidasScreen(),
     );
   }
 }

@@ -56,7 +56,7 @@ class MedidasScreen extends StatelessWidget {
               value: '95',
             ),
             NestedMeasureWidget(
-              top: 188 /1.2,
+              top: 188 / 1.2,
               left: 0,
               width: width * .7,
               label: 'Peito',
